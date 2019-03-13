@@ -56,4 +56,21 @@ th:hover {
 }
 #erreur {
   color: red;
+  padding-left: 8px;
+}
+#edit {
+  z-index: 2;
+  background-color: rgb(128, 128, 211);
+  position: absolute;
+}
+#error {
+  color: red;
+  
+}
+#prod {
+  text-transform: capitalize;
+}
+#prai {
+  padding-left: 100px;
+  
 }

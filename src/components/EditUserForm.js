@@ -12,16 +12,23 @@ const EditUserForm = props => {
 	return (
 		<form
 			onSubmit={event => {
+				
 				event.preventDefault()
-
-				props.updateUser(user.id, user)
+					if(isNaN(user.prix)){
+						var erreur = document.getElementById('error')
+						erreur.innerHTML = 'Entrer un nombre'
+					}else{
+						props.updateUser(user.id, user)
+					}
 			}}
-		>
-			<input type="text" name="prix" value={user.prix} onChange={handleInputChange} /><br/><br/>
+		>	<div id="over">
+			<input type="text" name="prix" value={user.prix} onChange={handleInputChange} />
+			<p id="error"></p>
 			<button className="btn btn-secondary">OK</button>&nbsp;&nbsp;
 			<button onClick={() => props.setEditing(false)} className="btn btn-primary">
 				Annuler
 			</button>
+			</div>
 		</form>
 	)
 }
