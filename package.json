@@ -10,7 +10,10 @@
     "react-confirm-alert": "^2.3.0",
     "react-dom": "^16.8.4",
     "react-popup": "^0.10.0",
-    "react-scripts": "2.1.8"
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.8",
+    "react-simplert": "0.0.2"
   },
   "scripts": {
     "start": "react-scripts start",

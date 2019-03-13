@@ -4,7 +4,7 @@ import 'react-confirm-alert/src/react-confirm-alert.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const UserTable = props => (
-
+		
 	<table class="table table-bordered">
 		<thead class="thead-dark">
 			<tr>
@@ -19,12 +19,13 @@ const UserTable = props => (
 				props.users.map(user => (
 					<tr key={user.id}>
                         <td><center>{user.id}</center></td>
-						<td><center>{user.produit}</center></td>
-						<td><center>{user.prix}</center></td>
+						<td><center id="prod">{user.produit}</center></td>
+						<td id="prai">{user.prix}</td>
 						<td>
 						<center><button className="btn btn-danger" onClick={() => {
 															confirmAlert({
-															message: 'Suppression Produit',
+															title: 'Suppression Produit',
+															message: user.produit,
 															buttons: [
 																{
 																label: 'Oui',
@@ -41,10 +42,10 @@ const UserTable = props => (
 										onClick={() => {
 											 props.editRow(user)
 										}}
-										className="btn btn-success"
+										className="btn btn-success" 
 										>
 										Edit
-										</button>
+								</button>
 						</center>
 						</td>
 					</tr>
