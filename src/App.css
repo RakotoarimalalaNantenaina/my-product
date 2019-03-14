@@ -38,39 +38,89 @@
   margin-top: 80px;
 }
 .table {
-  width: 900px;
+  width: 940px;
   margin-top: 25px;
+  margin-right: 100px;
 }
 .thead-dark {
   border-radius: 10px;
 }
 th {
   font-size: 20px;
+  background-color: rgb(60, 125, 155);
+  color: white;
+}
+
+td {
+  background-color: rgb(255, 245, 245);
+  color: rgb(15, 46, 37);
 }
 th:hover {
   font-weight: bold;
 }
-.total {
-  border : solid black ;
-  width: 140px;
+#total {
+  border : groove black ;
+  width: 200px;
 }
 #erreur {
   color: red;
   padding-left: 8px;
 }
 #edit {
-  z-index: 2;
-  background-color: rgb(128, 128, 211);
+  z-index: 1;
+  background-color:rgba(94, 70, 70, 0.9);
+  width: 25%;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  height: 150px;
+  margin-top: 300px;
+  text-align: center;
+  border: 1px solid lightgrey;
+  border-radius:25px;
   position: absolute;
+  box-shadow: 2px 7px rgba(0, 0, 0, 0.13);
+  position: fixed;
+  top: 0;
+  left: 303px;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  background: rgba(255, 255, 255, 0.9);
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  justify-content: center;
+  -ms-align-items: center;
+  align-items: center;
+  opacity: 0;
+  -webkit-animation: react-confirm-alert-fadeIn 0.5s 0.2s forwards;
+  -moz-animation: react-confirm-alert-fadeIn 0.5s 0.2s forwards;
+  -o-animation: react-confirm-alert-fadeIn 0.5s 0.2s forwards;
+  animation: react-confirm-alert-fadeIn 0.5s 0.2s forwards;
 }
 #error {
   color: red;
-  
 }
 #prod {
   text-transform: capitalize;
 }
+#totalari {
+  text-align: left;
+  border : groove black ;
+  width: 400px;
+  margin-left: 447px;
+}
+#botton {
+    margin-right: 85px;
+}
+#prod:first-letter {
+  text-transform:uppercase;
+}
+#prod{
+  text-transform:lowercase
+}
 #prai {
-  padding-left: 100px;
-  
+  float: right;
 }

@@ -24,8 +24,8 @@ const EditUserForm = props => {
 		>	<div id="over">
 			<input type="text" name="prix" value={user.prix} onChange={handleInputChange} />
 			<p id="error"></p>
-			<button className="btn btn-secondary">OK</button>&nbsp;&nbsp;
-			<button onClick={() => props.setEditing(false)} className="btn btn-primary">
+			<button className="btn btn-primary">OK</button>&nbsp;&nbsp;
+			<button onClick={() => props.setEditing(false)} className="btn btn-secondary">
 				Annuler
 			</button>
 			</div>
