@@ -6,7 +6,7 @@ import './App.css';
 const App = () => {
   const usersData = [
     
-  ]
+	]
 	const [users, setUsers] = useState(usersData)
   const [count, setCount] = useState(0)
   const addUser = user => {
@@ -24,13 +24,14 @@ const App = () => {
 
 	const [ currentUser, setCurrentUser ] = useState(initialFormState)
 
-	
+
 
 	const editRow = user => {
 		setEditing(true)
-	
 		setCurrentUser({ id: user.id, produit: user.produit, prix: user.prix })
 	}
+
+
 
 	const updateUser = (id, updatedUser) => {
 		setEditing(false)
@@ -38,43 +39,67 @@ const App = () => {
 		setUsers(users.map(user => (user.id === id ? updatedUser : user)))
 	}
 
+	const addition=()=>{
+		var init=0;
+
+		for(var i=0;i<users.length;i++){
+				init = init + parseInt(users[i].prix);
+		}
+			
+		 var a=[init]   
+
+		var numero = new Intl.NumberFormat("es-ES");
+		var forma = a.map(numero.format);     
+		
+		var av =  document.getElementById('var');
+		av.innerHTML = forma;
+
+		return forma.join("; ")
+		}
+
   return (
     <div className="container">
+		<center>
       <div className="flex-row">
+		
         <div className="flex-large">
           <AddUserForm addUser={addUser} setCount={setCount} count={count}/>
         </div><br></br>
         <div className="flex-large">
-          <UserTable users={users} editRow={editRow} deleteUser={deleteUser} />
+          <UserTable users={users} editRow={editRow} deleteUser={deleteUser}/>	
         </div>
-
-				<div className="flex-large" id="edit">
-
+				<div className="row">
+					<div className="col-md-4"></div>
+					<div className="col-md-4"></div>
+					<div className="col-md-4">
+						<button id="botton" className="btn btn-secondary" onClick={() => {addition()}} >TOTAL</button>
+					</div>
+				</div>	
+				<div className="container">
+					<p id="totalari">TOTAL = <span id="var"></span> &nbsp;Ar</p>
+				</div><br/>
 				{editing ? (
             <div>
+								
+								<div id="edit">
                 <EditUserForm
+								
                     editing={editing}
                     setEditing={setEditing}
                     currentUser={currentUser}
-                    updateUser={updateUser}
+										updateUser={updateUser}
                 />
+							</div>
             </div>
         ) : (
             <div>
             </div>
       
-      )}
+			)}
 			
-				</div>
-				<div className="row">
-					<div className="col-md-4"></div>
-					<div className="col-md-4"></div>
-					<div className="col-md-4">
-						<button class="btn btn-secondary">TOTAL</button><br/><br/>
-						<div className="total"><span>TOTAL =   Ar</span></div>
-					</div>
-				</div>
+					
       </div>
+			</center>
     </div>
   )
 }
@@ -98,8 +123,8 @@ const AddUserForm = props => {
 					var erreur = document.getElementById('erreur')
 					erreur.innerHTML = 'Entrer un nombre'
 			}else{
-					var erreur = document.getElementById('erreur')
-					erreur.innerHTML = "";
+					var yes = document.getElementById('erreur')
+					yes.innerHTML = "";
 					props.addUser(user)
 					props.setCount(props.count +1)
 					setUser(initialFormState)		
@@ -107,7 +132,7 @@ const AddUserForm = props => {
 
 			}
 		}
-		>
+		>	<center>
 			<div className="row">
 					<div className="col-md-4">
 						<label id="nom">Produit &nbsp;&nbsp;</label>
@@ -115,14 +140,16 @@ const AddUserForm = props => {
 					</div>
 					<div className="col-md-4">
 							<label id="nom">&nbsp;&nbsp;Prix &nbsp;&nbsp;</label>
-							<input id="inputprix" type="text" name="prix" value={user.prix} onChange={handleInputChange} /><br/>
+							<input id="inputprix" type="text" name="prix" value={user.prix} onChange={handleInputChange} /> 
+							&nbsp;&nbsp;&nbsp;<span id="nom">Ar</span><br/>
 							<p id="erreur"></p>
 					</div>
 					<div className="col-md-4">
-					 <button class="btn btn-primary">Ajouter</button>
+					 <button className="btn btn-primary">Ajouter</button>
 					 <script src="components/erreur.js"></script>
 					</div>
 			</div>
+			</center>
 		</form>
 	)
 }	
